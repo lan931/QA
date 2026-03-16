@@ -1,15 +1,15 @@
-# RAG_QA – LLM-Only vs LLM + RAG JSON Question Answering
+# QA – LLM-Only vs LLM +  JSON Question Answering
 
 ## 🧩 Project Overview
-**RAG_QA** demonstrates how retrieval-augmented generation (RAG) improves the factual reliability of large language models (LLMs).  
+**QA** demonstrates how retrieval-augmented generation () improves the factual reliability of large language models (LLMs).  
 It compares two pipelines:
 
 | Mode | Description |
 |------|--------------|
 | **LLM-only** | The language model directly answers user questions using its internal knowledge — often producing hallucinations. |
-| **LLM + RAG (JSON)** | The language model first interprets the user’s intent, Python retrieves factual data from a structured JSON dataset, and the LLM then generates a grounded answer based on that context. |
+| **LLM +  (JSON)** | The language model first interprets the user’s intent, Python retrieves factual data from a structured JSON dataset, and the LLM then generates a grounded answer based on that context. |
 
-Dataset: `data/cloud_storage.json`, containing real pricing and feature data for Google Drive, Dropbox, OneDrive, and Box.
+Dataset: `data/cloud_stoe.json`, containing real pricing and feature data for Google Drive, Dropbox, OneDrive, and Box.
 
 ---
 
@@ -35,10 +35,10 @@ User Question
 
 ## 📂 Project Structure
 ```
-RAG_QA/
+QA/
 │
 ├── data/
-│   └── cloud_storage.json
+│   └── cloud_stoe.json
 │
 ├── utils/
 │   ├── api_client.py          # OpenAI client & .env loader
@@ -47,7 +47,7 @@ RAG_QA/
 │
 ├── models/
 │   ├── llm_only.py            # Pure LLM answers
-│   └── llm_with_json.py       # RAG pipeline (semantic + retrieval + generation)
+│   └── llm_with_json.py       #  pipeline (semantic + retrieval + generation)
 │
 ├── main.py                    # CLI entry point
 └── .env                       # Contains OPENAI_API_KEY
@@ -106,16 +106,16 @@ Uses GPT-3.5-Turbo to interpret natural language questions and output structured
 Later versions support richer filters such as budget ranges and feature preferences.
 
 ### `json_retriever.py`
-Executes factual retrieval from `cloud_storage.json` based on parsed conditions  
+Executes factual retrieval from `cloud_stoe.json` based on parsed conditions  
 (e.g., cheapest, budget range, supported features).
 
 ### `llm_with_json.py`
-Combines semantic parsing + factual retrieval + answer generation — the essence of RAG.
+Combines semantic parsing + factual retrieval + answer generation — the essence of .
 
 ---
 
 ## 📊 Expected Behavior
-| Scenario | LLM-only | LLM + JSON (RAG) |
+| Scenario | LLM-only | LLM + JSON () |
 |-----------|-----------|------------------|
 | “Which plan is cheapest on Dropbox?” | May hallucinate a free 2 GB plan | Correctly answers “Plus $15.99/month” |
 | “What’s the largest plan on Google Drive?” | May guess outdated info | Retrieves 2 TB plan from JSON |
@@ -124,11 +124,11 @@ Combines semantic parsing + factual retrieval + answer generation — the essenc
 ---
 
 ## 🧩 Extension Ideas
-- Add support for compound filters (budget + features + storage size)  
+- Add support for compound filters (budget + features + stoe size)  
 - Evaluate accuracy vs. hallucination rate on custom question sets  
 - Deploy as a cli or web demo (Streamlit / FastAPI)
 
 ---
 
 ## 📜 License
-MIT License © 2025 RAG_QA Team
+MIT License © 2025 QA Team
